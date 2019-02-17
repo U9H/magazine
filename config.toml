@@ -13,3 +13,10 @@ build_search_index = true
 
 [extra]
 # Put all your custom variables here
+[[extra.menu]]
+name = "Blog"
+url = "/"
+
+[[extra.menu]]
+name = "Back to U9H"
+url = "https://u9h.design"
