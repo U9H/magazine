@@ -2,6 +2,12 @@
 
 {% block content %}
     <div class="w-100 pa4 center mw8">
-       <div>hi</div>
+       {% for page in section.pages %}
+            <div>
+                <a href="{{ page.permalink }}">
+                    <h1>{{ page.title }}</h1>
+                </a>
+            </div>
+       {% endfor %}
     </div>
 {% endblock content %}

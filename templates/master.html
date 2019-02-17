@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="/main.css">
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
 </head>
-<body class="bg-near-black fixed w-100">
-    <nav class="fixed w-100">
+<body>
+    <nav class="w-100 overflow-scroll">
         <div class="pa4 w-100 mw8 center flex justify-between">
             <a href="/">
-                <img src="/media/logo.png" class="db" />
+                <img src="/media/logo-dark.png" class="db" />
             </a>
             <div class="flex">
                 {% for item in config.extra.menu %}
-                    <a href="{{ item.url }}" class="db yellow no-underline f4 mh4 mv3 ">
+                    <a href="{{ item.url }}" class="db gold no-underline f4 mh4 mv3 ">
                         {{ item.name }}
                     </a>
                 {% endfor %}
