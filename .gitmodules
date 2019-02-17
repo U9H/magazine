@@ -1,0 +1,3 @@
+[submodule "sass/tachyons"]
+	path = sass/tachyons
+	url = https://github.com/tachyons-css/tachyons-sass
