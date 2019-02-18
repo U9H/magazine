@@ -11,6 +11,11 @@ highlight_code = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
+taxonomies = [
+    {name = "categories"},
+    {name = "authors"}, # each tag will have its own RSS feed
+]
+
 [extra]
 # Put all your custom variables here
 [[extra.menu]]

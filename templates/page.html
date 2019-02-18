@@ -1,8 +1,48 @@
-{% extends "master.html" %} 
+{% extends "master.html" %}
 
 {% block content %}
-    <div class="w-100 pa4 center mw7-ns mw-100 overflow-scroll near-black lh-copy">
-       <h1 class="f1">{{ page.title }}</h1>
-       {{ page.content | safe }}
+<div class="flex-l flex-column-m w-100 pa3 center mw8 near-black lh-copy overflow-x-hidden">
+    <div class="w-25-l w-100-m">
+
+        {# Show and link to all authors #}
+        {% if page.taxonomies.authors %}
+            <p>
+                Author{{ page.taxonomies.authors | length | pluralize }}: 
+                {% for author in page.taxonomies.authors %}
+                    <a href='{{ get_taxonomy_url(kind="authors", name=author) }}'>
+                        {{ author }}{% if loop.index != page.taxonomies.authors | length %}, {% endif %}
+                    </a>
+                {% endfor %}
+            </p>
+        {% endif %}
+
+        {# Show and link to all categories #}
+        {% if page.taxonomies.categories %}
+            <p>
+                Category{{ page.taxonomies.categories | length | pluralize }}: 
+                {% for category in page.taxonomies.categories %}
+                    <a href='{{ get_taxonomy_url(kind="categories", name=category) }}'>
+                        {{ category | capitalize }}{% if loop.index != page.taxonomies.categories | length %}, {% endif %}
+                    </a>
+                {% endfor %}
+            </p>
+        {% endif %}
+
+        {# Reading Time #}
+        <p>
+            Reading Time:
+            {# We always get minutes back, so do some calculation for over 1 hour posts #}
+            {% if page.reading_time >= 60 %}
+                {% set hours = page.reading_time / 60 | round(precision=1) %}
+                {{ hours }} Hour{{hours | pluralize}}
+            {% else %}
+                {{ page.reading_time }} Minute{{page.reading_time | pluralize}}
+            {% endif %}
+        </p>
     </div>
+    <div class="w-75-l w-100-m overflow-hide">
+        <h1 class="f1-ns lh-title lh-copy f2 mt0">{{ page.title }}</h1>
+        {{ page.content | safe }}
+    </div>
+</div>
 {% endblock content %}

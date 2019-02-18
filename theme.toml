@@ -4,6 +4,15 @@ license = "MIT"
 homepage = "https://github.com/U9H/magazine"
 min_version = "0.5.1"
 
+taxonomies = [
+    {name = "categories"},
+    {name = "authors"}, # each tag will have its own RSS feed
+]
+
+[author]
+name = "U9H"
+homepage = "https://u9h.design"
+
 [extra]
 [[extra.menu]]
 name = "Blog"
@@ -12,7 +21,3 @@ url = "/"
 [[extra.menu]]
 name = "Back to U9H"
 url = "https://u9h.design"
-
-[author]
-name = "U9H"
-homepage = "https://u9h.design"
