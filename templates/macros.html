@@ -1,0 +1,12 @@
+{# Creates the title of the page from text and an image, video, or none #}
+{% macro article_heading(title, background=false) %}
+    {% if background %}
+       <div class="f2-l f3-m f4 mb5 white pa5 br3" style="background-image: url({{ background }});">
+            <h1 class="lh-title">{{ title }}</h1>
+       </div>
+    {% else %}
+        <div class="f2-l f3-m f4 mb5">
+            <h1 class="lh-title">{{ title }}</h1>
+        </div>
+    {% endif %}
+{% endmacro input %}

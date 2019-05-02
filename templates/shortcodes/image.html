@@ -1,3 +1,6 @@
-<div class="image">
-    <img src="/{{page.slug}}/{{path}}" {% if no_top_margin %}class="tm0" {% endif %} alt="{{alt}}"/> {% if description %}<small>{{description}}</small>{% endif %}
+<div class="image mw-100 br2">
+    <img src="/{{page.slug}}/{{path}}" {% if no_top_margin %}class="tm0" {% endif %} alt="{{alt}}"/>
+    {% if description %}
+        <small>{{description}}</small>
+    {% endif %}
 </div>

@@ -1,8 +1,18 @@
 {% extends "master.html" %}
-
+{% import "macros.html" as m %}
 {% block content %}
-<div class="flex-l flex-column-m w-100 pa3 center mw8 near-black lh-copy overflow-x-hidden">
-    <div class="w-25-l w-100-m">
+<div class="flex flex-row-l flex-column-reverse w-100 pa3 pa4-l center mw8-m mw9-l near-black lh-copy overflow-x-hidden">
+    <div class="w-75-l w-100-m overflow-hide pr4-l">
+        {% if page.extra.cover %}
+            {{ m::article_heading(title=page.title, background=page.extra.cover) }}
+        {% else %}
+            {{ m::article_heading(title=page.title) }}
+        {% endif %} 
+        <div class="f3-l f4-m f5">
+            <article>{{ page.content | safe }}</article>
+        </div>
+    </div>
+    <div class="w-25-l w-100-m f3-l f4-m f5">
 
         {# Show and link to all authors #}
         {% if page.taxonomies.authors %}
@@ -39,10 +49,6 @@
                 {{ page.reading_time }} Minute{{page.reading_time | pluralize}}
             {% endif %}
         </p>
-    </div>
-    <div class="w-75-l w-100-m overflow-hide">
-        <h1 class="f1-ns lh-title lh-copy f2 mt0">{{ page.title }}</h1>
-        {{ page.content | safe }}
     </div>
 </div>
 {% endblock content %}
